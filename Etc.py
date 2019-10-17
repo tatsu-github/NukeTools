@@ -9,7 +9,7 @@ for i in nodes:
     
     
 # replace footage path
-import os
+import glob
 old_ver = 'v001t01'
 new_ver = 'v001t02'
 nodes = nuke.selectedNodes()
