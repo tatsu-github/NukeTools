@@ -15,7 +15,10 @@ new_ver = 'v001t02'
 nodes = nuke.selectedNodes()
 replaced_file = 'Result: \n'
 for i in nodes:
-    getval = i.knob('file').getValue()
+    try:
+        getval = i.knob('file').getValue()
+    except AttributeError:
+        continue
     if not old_ver in getval:
         continue
     else:
