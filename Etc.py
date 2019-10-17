@@ -13,7 +13,7 @@ import os
 old_ver = 'v001t01'
 new_ver = 'v001t02'
 nodes = nuke.selectedNodes()
-replaced_file = []
+replaced_file = 'Result: \n'
 for i in nodes:
     getval = i.knob('file').getValue()
     if not old_ver in getval:
@@ -23,7 +23,7 @@ for i in nodes:
     search_name = new_file.replace('%04d.exr', '????.*')
     if glob.glob(search_name):
         i.knob('file').setValue(new_file)
-        replaced_file.append(old_file.split('/')[-1], '>>', new_file.split('/')[-1])
+        replaced_file = replaced_file + 'Update: ' + getval.split('/')[-1].split('.')[0] + ' >> ' + new_ver + '\n'
     else:
         print new_file.split('/')[-1],'does not exists', '\n'
 if replaced_file:
