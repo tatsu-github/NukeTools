@@ -9,7 +9,6 @@ for i in nodes:
 # replace footage path
 old_ver = 'v001t01'
 new_ver = 'v001t02'
-
 nodes = nuke.selectedNodes()
 for i in nodes:
     getval = i.knob('file').getValue()
