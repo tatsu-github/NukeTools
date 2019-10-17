@@ -20,9 +20,10 @@ for i in nodes:
         continue
     else:
         new_file = getval.replace(old_ver, new_ver)
-    if os.path.exists(new_file) is True:
+    search_name = new_file.replace('%04d.exr', '????.*')
+    if glob.glob(search_name):
         i.knob('file').setValue(new_file)
-        replaced_file.appned(old_file.split('/')[-1], '>>', new_file.split('/')[-1])
+        replaced_file.append(old_file.split('/')[-1], '>>', new_file.split('/')[-1])
     else:
         print new_file.split('/')[-1],'does not exists', '\n'
 if replaced_file:
