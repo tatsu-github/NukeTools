@@ -15,12 +15,14 @@ new_ver = 'v001t02'
 nodes = nuke.selectedNodes()
 for i in nodes:
     getval = i.knob('file').getValue()
-    if old_ver in getval:
+    if not old_ver in getval:
+        continue
+    else:
         new_file = getval.replace(old_ver, new_ver)
-        if os.path.exists(new_file) is True:
-            i.knob('file').setValue(new_file)
-        else:
-            print new_file.split('/')[-1],'does not exists', '\n'
+    if os.path.exists(new_file) is True:
+        i.knob('file').setValue(new_file)
+    else:
+        print new_file.split('/')[-1],'does not exists', '\n'
 
 
             
