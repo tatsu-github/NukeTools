@@ -13,6 +13,7 @@ import os
 old_ver = 'v001t01'
 new_ver = 'v001t02'
 nodes = nuke.selectedNodes()
+replaced_file = []
 for i in nodes:
     getval = i.knob('file').getValue()
     if not old_ver in getval:
@@ -21,9 +22,11 @@ for i in nodes:
         new_file = getval.replace(old_ver, new_ver)
     if os.path.exists(new_file) is True:
         i.knob('file').setValue(new_file)
+        replaced_file.appned(old_file.split('/')[-1], '>>', new_file.split('/')[-1])
     else:
         print new_file.split('/')[-1],'does not exists', '\n'
-
+if replaced_file:
+    nuke.message(replaced_file)
 
             
             
