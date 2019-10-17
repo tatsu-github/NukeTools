@@ -1,0 +1,19 @@
+# set value to selected nodes
+attr = 'colorspace'
+val = 'linear_sRGB'
+nodes = nuke.selectedNodes()
+for i in nodes:
+    i.knob(attr).setValue(val)
+    print i.name()+': ', attr,'>>' , val
+    
+# replace footage path
+old_ver = 'v001t01'
+new_ver = 'v001t02'
+
+nodes = nuke.selectedNodes()
+for i in nodes:
+    getval = i.knob('file').getValue()
+    if old_ver in getval:
+        new_file = getval.replace(old_ver, new_ver)
+        i.knob('file').setValue(new_file)
+
