@@ -1,3 +1,6 @@
+# [TCL] Nukeでトップノードの拡張子を除くファイル名を取得
+[lindex [split [file tail [knob [topnode].file]] .] 0]
+
 # set value to selected nodes
 attr = 'colorspace'
 val = 'linear_sRGB'
@@ -5,8 +8,6 @@ nodes = nuke.selectedNodes()
 for i in nodes:
     i.knob(attr).setValue(val)
     print i.name()+': ', attr,'>>' , val
-    
-    
     
 # replace footage path
 import glob
