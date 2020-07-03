@@ -1,3 +1,12 @@
+# Get nuke.root name
+nuke_root = nuke.root().name()
+# Get nuke file name
+nuke_file = nuke_root.split('/')[-1]
+# Get nuke file name without extension
+nuke_name = nuke_file.split('.')[0]
+# Get file suffix
+nuke_suffix = nuke_name.split('_')[-1]
+
 # [TCL] Nukeでトップノードの拡張子を除くファイル名を取得
 [lindex [split [file tail [knob [topnode].file]] .] 0]
 
