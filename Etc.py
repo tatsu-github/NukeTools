@@ -8,7 +8,8 @@ def openFileDirectory():
     try:
         path = node['file'].getValue()
     except NameError as nm:
-        print nm
+        print 'NameError', nm
+        return
     if path:
         dir_path = '/'.join(path.split('/')[0:-1])
         subprocess.Popen(['explorer', dir_path.encode('cp932').replace('/', '\\')])
