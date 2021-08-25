@@ -25,6 +25,8 @@ nuke_suffix = nuke_name.split('_')[-1]
 
 # [TCL] Nukeでトップノードの拡張子を除くファイル名を取得
 [lindex [split [file tail [knob [topnode].file]] .] 0]
+# [TCK] Nukeでトップノードの拡張子を除くフルパスを取得
+[file rootname [knob [topnode].file]]
 
 # set value to selected nodes
 attr = 'colorspace'
