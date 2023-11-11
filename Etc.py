@@ -8,7 +8,7 @@ def openFileDirectory():
     try:
         path = node['file'].getValue()
     except NameError as nm:
-        print 'NameError', nm
+        print('NameError', nm)
         return
     if path:
         dir_path = '/'.join(path.split('/')[0:-1])
@@ -34,7 +34,7 @@ val = 'linear_sRGB'
 nodes = nuke.selectedNodes()
 for i in nodes:
     i.knob(attr).setValue(val)
-    print i.name()+': ', attr,'>>' , val
+    print(i.name()+': ', attr,'>>' , val)
     
 # replace footage path
 import glob
@@ -56,7 +56,7 @@ for i in nodes:
         i.knob('file').setValue(new_file)
         replaced_file = replaced_file + 'Update: ' + getval.split('/')[-1].split('.')[0] + ' >> ' + new_ver + '\n'
     else:
-        print new_file.split('/')[-1],'does not exists', '\n'
+        print(new_file.split('/')[-1],'does not exists', '\n')
 if replaced_file:
     nuke.message(replaced_file)
 
