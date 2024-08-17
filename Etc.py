@@ -27,6 +27,8 @@ nuke_suffix = nuke_name.split('_')[-1]
 [lindex [split [file tail [knob [topnode].file]] .] 0]
 # [TCL] Nukeでトップノードの拡張子を除くフルパスを取得
 [file rootname [knob [topnode].file]]
+# [TCL] Nukeでトップノードの拡張子を除くフルパスを取得して末尾に文字列と拡張子を追加
+[file rootname [knob [topnode].file]]_4K_ACEScg.exr
 
 # set value to selected nodes
 attr = 'colorspace'
