@@ -30,6 +30,9 @@ nuke_suffix = nuke_name.split('_')[-1]
 # [TCL] Nukeでトップノードの拡張子を除くフルパスを取得して末尾に文字列と拡張子を追加
 [file rootname [knob [topnode].file]]_4K_ACEScg.exr
 
+# [Expression] root.first_frame+10F までは1、以降は0を返す
+frame < [value root.first_frame] + 10
+
 # set value to selected nodes
 attr = 'colorspace'
 val = 'linear_sRGB'
